@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Ragil KP', url: 'https://github.com/ragil-007' }],
   creator: 'Ragil KP',
   alternates: {
-    canonical: '/',
+    canonical: `${siteUrl.replace(/\/+$/, '')}/`,
   },
   icons: {
     icon: [
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: siteUrl,
+    url: `${siteUrl.replace(/\/+$/, '')}/`,
     title: 'Ragil KP — Software Developer',
     description:
       'Building digital experiences through code, creativity, and curiosity. Exploring backend architecture, distributed systems, and modern web applications.',
@@ -114,12 +114,12 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'Person',
-      '@id': `${siteUrl}/#person`,
+      '@id': `${siteUrl.replace(/\/+$/, '')}/#person`,
       name: 'Ragil KP',
       jobTitle: 'Software Developer',
       description:
         'Software Developer based in Dubai, UAE specializing in Java, Spring Boot, Python, Django, Next.js, and practical full-stack engineering.',
-      url: siteUrl,
+      url: `${siteUrl.replace(/\/+$/, '')}/`,
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Dubai',
@@ -156,12 +156,12 @@ const jsonLd = {
     },
     {
       '@type': 'WebSite',
-      '@id': `${siteUrl}/#website`,
-      url: siteUrl,
+      '@id': `${siteUrl.replace(/\/+$/, '')}/#website`,
+      url: `${siteUrl.replace(/\/+$/, '')}/`,
       name: 'Ragil KP Portfolio',
       description: 'Personal portfolio of software developer Ragil KP',
       author: {
-        '@id': `${siteUrl}/#person`,
+        '@id': `${siteUrl.replace(/\/+$/, '')}/#person`,
       },
     },
   ],
