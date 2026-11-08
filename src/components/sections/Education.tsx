@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { EDUCATION_LIST, CERTIFICATIONS } from '@/data/education';

@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Cpu, Server, Headphones, Wrench, CheckCircle2 } from 'lucide-react';

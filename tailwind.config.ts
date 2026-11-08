@@ -57,12 +57,14 @@ const config: Config = {
         widest: '0.12em',
       },
       fontSize: {
-        '2xs': '0.6875rem',
+        '3xs': '0.5625rem',   // 9px — used in ProjectMockup micro-labels
+        '2xs': '0.6875rem',   // 11px — used throughout for monospace metadata
         'display': ['clamp(2.75rem, 6vw, 4.75rem)', { lineHeight: '1.05', letterSpacing: '-0.035em' }],
         'display-lg': ['clamp(3.5rem, 8vw, 6.5rem)', { lineHeight: '0.98', letterSpacing: '-0.04em' }],
         'section-heading': ['clamp(1.75rem, 3.5vw, 2.75rem)', { lineHeight: '1.15', letterSpacing: '-0.03em' }],
       },
       boxShadow: {
+        '2xs': '0 1px 2px 0 rgba(0, 0, 0, 0.03)',  // used in Skills filter pills, Contact icons, Experience timeline
         'subtle': '0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.02)',
         'float': '0 8px 30px rgba(0, 0, 0, 0.06)',
         'lift': '0 20px 40px -15px rgba(0, 0, 0, 0.08)',

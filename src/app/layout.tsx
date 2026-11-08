@@ -1,6 +1,30 @@
 import type { Metadata, Viewport } from 'next';
+import { Inter, JetBrains_Mono, Instrument_Serif } from 'next/font/google';
 import './globals.scss';
 
+// ─── Font Loading ─────────────────────────────────────────────────────────────
+// Inter replaces Geist Sans (not available in next/font/google on Next.js 14)
+// JetBrains Mono replaces Geist Mono (same constraint)
+const inter = Inter({
+  variable: '--font-sans',
+  subsets: ['latin'],
+  display: 'swap',
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: '--font-mono',
+  subsets: ['latin'],
+  display: 'swap',
+});
+
+const instrumentSerif = Instrument_Serif({
+  variable: '--font-serif',
+  subsets: ['latin'],
+  weight: '400',
+  display: 'swap',
+});
+
+// ─── Metadata ─────────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
   title: 'Ragil KP — Software Developer | Portfolio',
   description:
@@ -47,13 +71,17 @@ export const viewport: Viewport = {
   maximumScale: 5,
 };
 
+// ─── Root Layout ──────────────────────────────────────────────────────────────
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html
+      lang="en"
+      className={`scroll-smooth ${inter.variable} ${jetbrainsMono.variable} ${instrumentSerif.variable}`}
+    >
       <body className="bg-canvas text-ink-primary antialiased selection:bg-ink-primary selection:text-canvas min-h-screen flex flex-col">
         {children}
       </body>
