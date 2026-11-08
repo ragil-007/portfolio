@@ -1,78 +1,33 @@
 'use client';
 
-import React, { useState } from 'react';
-import { ExternalLink, Github, CheckCircle } from 'lucide-react';
+import React from 'react';
+import { ExternalLink, Github, CheckCircle, ArrowUpRight } from 'lucide-react';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { ProjectMockup } from '@/components/ui/ProjectMockup';
-import { PROJECTS, SECONDARY_PROJECTS } from '@/data/projects';
+import { PROJECTS } from '@/data/projects';
+import { PERSONAL_INFO } from '@/data/navigation';
 import { Reveal } from '@/components/animations/Reveal';
 
 export function Projects() {
-  const [activeFilter, setActiveFilter] = useState<'all' | 'fullstack' | 'backend'>('all');
-
-  const filteredProjects = PROJECTS.filter((proj) => {
-    if (activeFilter === 'all') return true;
-    if (activeFilter === 'fullstack') {
-      return proj.category.includes('Full-Stack') || proj.category.includes('AI');
-    }
-    if (activeFilter === 'backend') {
-      return proj.category.includes('Backend') || proj.category.includes('Distributed');
-    }
-    return true;
-  });
+  const featuredProjects = PROJECTS.filter((p) => p.isFeatured);
+  const compactProjects = PROJECTS.filter((p) => !p.isFeatured);
 
   return (
     <section id="work" className="py-24 sm:py-32 scroll-mt-20 border-t border-rule-subtle">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
         <Reveal>
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-            <SectionHeading
-              number="01"
-              tag="Selected Projects"
-              title="Practical engineering, built with purpose."
-              subtitle="A selection of full-stack platforms, backend architectures, asynchronous engines, and AI integrations."
-            />
-
-            {/* Filter Pills */}
-            <div className="flex items-center gap-2 p-1 rounded-full bg-surface border border-rule-subtle self-start md:self-auto mb-8 md:mb-16">
-              <button
-                onClick={() => setActiveFilter('all')}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-mono transition-colors ${
-                  activeFilter === 'all'
-                    ? 'bg-ink-primary text-canvas font-medium'
-                    : 'text-ink-secondary hover:text-ink-primary'
-                }`}
-              >
-                All ({PROJECTS.length})
-              </button>
-              <button
-                onClick={() => setActiveFilter('fullstack')}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-mono transition-colors ${
-                  activeFilter === 'fullstack'
-                    ? 'bg-ink-primary text-canvas font-medium'
-                    : 'text-ink-secondary hover:text-ink-primary'
-                }`}
-              >
-                Full-Stack & AI
-              </button>
-              <button
-                onClick={() => setActiveFilter('backend')}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-mono transition-colors ${
-                  activeFilter === 'backend'
-                    ? 'bg-ink-primary text-canvas font-medium'
-                    : 'text-ink-secondary hover:text-ink-primary'
-                }`}
-              >
-                Backend & Systems
-              </button>
-            </div>
-          </div>
+          <SectionHeading
+            number="01"
+            tag="Selected Projects"
+            title="Practical engineering, built with purpose."
+            subtitle="Verified software development projects spanning full-stack web applications, AI integrations, backend services, and systems engineering."
+          />
         </Reveal>
 
-        {/* Projects List (Alternating Editorial Layout) */}
+        {/* Featured Projects (Prominent Editorial Layout) */}
         <div className="space-y-24 sm:space-y-32">
-          {filteredProjects.map((project, index) => {
+          {featuredProjects.map((project, index) => {
             const isReversed = index % 2 !== 0;
 
             return (
@@ -101,13 +56,7 @@ export function Projects() {
                         <span className="uppercase tracking-wider">{project.category}</span>
                       </div>
 
-                      <span
-                        className={`px-2.5 py-0.5 rounded-full text-2xs font-mono uppercase tracking-wider ${
-                          project.status === 'Completed'
-                            ? 'bg-status-liveBg text-status-live'
-                            : 'bg-canvas-subtle text-ink-secondary border border-rule-subtle'
-                        }`}
-                      >
+                      <span className="px-2.5 py-0.5 rounded-full text-2xs font-mono uppercase tracking-wider bg-status-liveBg text-status-live">
                         {project.status}
                       </span>
                     </div>
@@ -130,7 +79,7 @@ export function Projects() {
                     {/* Highlights List */}
                     <div className="space-y-2 pt-1">
                       <span className="font-mono text-2xs uppercase tracking-wider text-ink-muted block">
-                        Core Implementation Highlights
+                        Key Implementation Highlights
                       </span>
                       <ul className="space-y-2 text-xs text-ink-secondary font-sans">
                         {project.highlights.map((highlight, hIdx) => (
@@ -159,9 +108,9 @@ export function Projects() {
                       </div>
                     </div>
 
-                    {/* GitHub Link (if available) */}
-                    {project.githubUrl && (
-                      <div className="pt-2">
+                    {/* Links (GitHub + Live Demo if verified) */}
+                    <div className="pt-2 flex flex-wrap items-center gap-3">
+                      {project.githubUrl && (
                         <a
                           href={project.githubUrl}
                           target="_blank"
@@ -169,11 +118,23 @@ export function Projects() {
                           className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-surface border border-rule-strong hover:border-ink-primary text-ink-primary text-xs font-mono font-medium transition-colors shadow-subtle group/btn"
                         >
                           <Github className="w-4 h-4 text-accent" />
-                          <span>Inspect Repository on GitHub</span>
+                          <span>View on GitHub</span>
                           <ExternalLink className="w-3.5 h-3.5 text-ink-muted group-hover/btn:text-ink-primary transition-colors" />
                         </a>
-                      </div>
-                    )}
+                      )}
+
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-ink-primary text-canvas hover:bg-accent text-xs font-mono font-medium transition-colors shadow-subtle"
+                        >
+                          <span>Live Demo</span>
+                          <ArrowUpRight className="w-3.5 h-3.5" />
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
               </Reveal>
@@ -181,50 +142,120 @@ export function Projects() {
           })}
         </div>
 
-        {/* Secondary Projects Section */}
-        <Reveal delay={0.2}>
-          <div className="mt-28 pt-16 border-t border-rule-subtle">
-            <div className="mb-8">
+        {/* Compact Layout for Remaining Projects */}
+        <div className="mt-24 pt-16 border-t border-rule-subtle">
+          <Reveal>
+            <div className="mb-10">
               <span className="font-mono text-2xs uppercase tracking-widest text-ink-muted block mb-1">
-                // ADDITIONAL BUILDS & RESEARCH
+                // MORE VERIFIED REPOSITORIES
               </span>
               <h4 className="text-xl sm:text-2xl font-semibold text-ink-primary">
-                Other Notable Projects
+                Additional Technical Projects
               </h4>
+              <p className="text-xs sm:text-sm text-ink-secondary mt-1">
+                Academic and systems projects built with Java, Servlets, Django, and relational databases.
+              </p>
             </div>
+          </Reveal>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {SECONDARY_PROJECTS.map((secondary) => (
-                <div
-                  key={secondary.title}
-                  className="p-6 rounded-xl border border-rule-subtle bg-surface hover:border-rule-medium transition-colors space-y-3"
-                >
-                  <div className="flex items-center justify-between">
-                    <h5 className="font-semibold text-base text-ink-primary">
-                      {secondary.title}
-                    </h5>
-                    <span className="font-mono text-2xs px-2 py-0.5 rounded bg-canvas-subtle text-ink-muted border border-rule-subtle">
-                      {secondary.category}
-                    </span>
-                  </div>
-                  <p className="text-xs sm:text-sm text-ink-secondary leading-relaxed">
-                    {secondary.description}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5 pt-2">
-                    {secondary.technologies.map((t) => (
-                      <span
-                        key={t}
-                        className="px-2 py-0.5 rounded bg-canvas-subtle font-mono text-2xs text-ink-secondary"
-                      >
-                        {t}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {compactProjects.map((project, idx) => (
+              <Reveal key={project.id} delay={idx * 0.1}>
+                <div className="p-6 rounded-2xl border border-rule-subtle bg-surface hover:border-rule-medium transition-colors flex flex-col justify-between space-y-5 h-full group">
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between font-mono text-2xs text-ink-muted">
+                      <span className="text-accent font-bold">[{project.number}]</span>
+                      <span className="px-2 py-0.5 rounded bg-canvas-subtle border border-rule-subtle">
+                        {project.category}
                       </span>
-                    ))}
+                    </div>
+
+                    <div>
+                      <h5 className="font-semibold text-base sm:text-lg text-ink-primary group-hover:text-accent transition-colors">
+                        {project.title}
+                      </h5>
+                      <p className="text-xs font-serif italic text-ink-secondary mt-0.5">
+                        {project.tagline}
+                      </p>
+                    </div>
+
+                    <p className="text-xs text-ink-secondary leading-relaxed">
+                      {project.description}
+                    </p>
+
+                    <div className="space-y-1.5 pt-2 border-t border-rule-subtle">
+                      <span className="font-mono text-2xs uppercase tracking-wider text-ink-muted block">
+                        Highlights
+                      </span>
+                      <ul className="space-y-1 text-2xs text-ink-secondary">
+                        {project.highlights.slice(0, 3).map((h, i) => (
+                          <li key={i} className="flex items-start gap-1.5">
+                            <span className="text-accent">•</span>
+                            <span>{h}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4 pt-3 border-t border-rule-subtle">
+                    <div className="flex flex-wrap gap-1">
+                      {project.technologies.map((t) => (
+                        <span
+                          key={t}
+                          className="px-2 py-0.5 rounded bg-canvas-subtle font-mono text-2xs text-ink-secondary"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 font-mono text-xs text-ink-primary hover:text-accent font-medium transition-colors"
+                      >
+                        <Github className="w-3.5 h-3.5" />
+                        <span>Inspect Repository</span>
+                        <ExternalLink className="w-3 h-3 text-ink-muted" />
+                      </a>
+                    )}
                   </div>
                 </div>
-              ))}
-            </div>
+              </Reveal>
+            ))}
           </div>
-        </Reveal>
+
+          {/* Explore More on GitHub Callout */}
+          <Reveal delay={0.2}>
+            <div className="mt-14 p-6 sm:p-8 rounded-2xl border border-rule-subtle bg-canvas-subtle/50 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+              <div>
+                <span className="font-mono text-2xs uppercase tracking-widest text-accent font-semibold block mb-1">
+                  // OPEN SOURCE CODEBASES
+                </span>
+                <h5 className="font-sans font-semibold text-base sm:text-lg text-ink-primary">
+                  Looking for more code samples?
+                </h5>
+                <p className="text-xs sm:text-sm text-ink-secondary mt-0.5">
+                  Explore full repositories, commit histories, and code architectures directly on GitHub.
+                </p>
+              </div>
+
+              <a
+                href={PERSONAL_INFO.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-ink-primary text-canvas hover:bg-accent font-mono text-xs font-medium transition-colors shrink-0 shadow-subtle"
+              >
+                <Github className="w-4 h-4" />
+                <span>Explore more on GitHub</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </Reveal>
+        </div>
       </div>
     </section>
   );

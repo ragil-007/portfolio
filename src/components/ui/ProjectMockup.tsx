@@ -5,23 +5,27 @@ import {
   Activity,
   CheckCircle2,
   Clock,
-  Code2,
-  Cpu,
+  Database,
+  FileCheck,
+  GraduationCap,
   Layers,
+  MapPin,
   Mic,
+  Radio,
   Server,
   ShieldCheck,
-  Terminal,
+  UserCheck,
+  Users,
   Zap,
 } from 'lucide-react';
 
 interface ProjectMockupProps {
-  type: 'dashboard' | 'code' | 'terminal' | 'flow';
+  type?: 'dashboard' | 'terminal' | 'exam' | 'voter' | 'traffic';
   title: string;
 }
 
-export function ProjectMockup({ type, title }: ProjectMockupProps) {
-  const [activeTab, setActiveTab] = useState<'ui' | 'schema' | 'code'>('ui');
+export function ProjectMockup({ type = 'dashboard', title }: ProjectMockupProps) {
+  const [activeTab, setActiveTab] = useState<'ui' | 'code'>('ui');
 
   if (type === 'dashboard') {
     // Immuna - Digital Immunization System
@@ -34,7 +38,7 @@ export function ProjectMockup({ type, title }: ProjectMockupProps) {
             <div className="w-2.5 h-2.5 rounded-full bg-rule-medium" />
             <div className="w-2.5 h-2.5 rounded-full bg-rule-medium" />
             <span className="ml-2 font-mono text-2xs text-ink-muted">
-              immuna.internal / portal / v1
+              immuna-vaccine-management.vercel.app
             </span>
           </div>
           <div className="flex items-center gap-1.5 font-mono text-2xs text-ink-secondary">
@@ -55,7 +59,7 @@ export function ProjectMockup({ type, title }: ProjectMockupProps) {
               </span>
             </div>
             <p className="text-2xs sm:text-xs text-ink-muted mt-0.5">
-              Patient ID: #IM-2025-0841 • Age: 2 yrs • Primary Clinic: Pediatric Care
+              Patient ID: #IM-2025-0841 • Age: 2 yrs • Vaccination Schedule
             </p>
           </div>
 
@@ -68,7 +72,7 @@ export function ProjectMockup({ type, title }: ProjectMockupProps) {
                   : 'text-ink-secondary hover:bg-canvas-subtle'
               }`}
             >
-              Patient Schedule
+              Vaccine Schedule
             </button>
             <button
               onClick={() => setActiveTab('code')}
@@ -117,7 +121,7 @@ export function ProjectMockup({ type, title }: ProjectMockupProps) {
                     Hepatitis B — Booster Dose
                   </div>
                   <div className="text-2xs text-ink-muted font-mono mt-0.5">
-                    Scheduled Window: Nov 15 - Nov 30 • Automated SMS alert armed
+                    Scheduled Window: Nov 15 - Nov 30 • Automated alert armed
                   </div>
                 </div>
               </div>
@@ -158,10 +162,9 @@ export function ProjectMockup({ type, title }: ProjectMockupProps) {
   "nextUpcoming": {
     "vaccineName": "Hepatitis B Booster",
     "dueDate": "2025-11-20",
-    "status": "UPCOMING",
-    "authorizedBy": "Dr. Sarah Chen, MD"
+    "status": "UPCOMING"
   },
-  "rolesAllowed": ["ROLE_ADMIN", "ROLE_DOCTOR"]
+  "rolesAllowed": ["ROLE_ADMIN", "ROLE_DOCTOR", "ROLE_USER"]
 }`}
             </pre>
           </div>
@@ -169,8 +172,8 @@ export function ProjectMockup({ type, title }: ProjectMockupProps) {
 
         {/* Footer info bar */}
         <div className="px-4 py-2.5 bg-canvas-subtle border-t border-rule-subtle flex items-center justify-between text-2xs font-mono text-ink-muted">
-          <span>Stack: Spring Boot 3.x • Spring Security • MySQL • Vue 3</span>
-          <span className="hidden sm:inline">Stateless JWT Auth</span>
+          <span>Stack: Spring Boot • Spring Security • JWT • MySQL • Vue.js</span>
+          <span className="text-status-live font-medium">LIVE DEMO AVAILABLE</span>
         </div>
       </div>
     );
@@ -186,11 +189,11 @@ export function ProjectMockup({ type, title }: ProjectMockupProps) {
             <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
             <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
             <div className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
-            <span className="ml-2 text-canvas/50">ai-meeting-assistant.agent.sh</span>
+            <span className="ml-2 text-canvas/50">meeting-assistant-realtime</span>
           </div>
           <div className="flex items-center gap-2 text-canvas/60">
             <Mic className="w-3.5 h-3.5 text-accent animate-pulse" />
-            <span>MIC: ACTIVE [STREAMING]</span>
+            <span>MIC: STREAMING</span>
           </div>
         </div>
 
@@ -198,14 +201,14 @@ export function ProjectMockup({ type, title }: ProjectMockupProps) {
         <div className="px-4 py-3 bg-black/30 border-b border-canvas/10 grid grid-cols-2 sm:grid-cols-3 gap-2 text-2xs">
           <div>
             <span className="text-canvas/40 block">STT ENGINE</span>
-            <span className="text-canvas/90 font-medium">Whisper Large V3 (Groq)</span>
+            <span className="text-canvas/90 font-medium">Whisper Large V3 (Groq API)</span>
           </div>
           <div>
             <span className="text-canvas/40 block">LATENCY</span>
-            <span className="text-status-live font-medium">~280ms (Real-time)</span>
+            <span className="text-status-live font-medium">Sub-second Live Stream</span>
           </div>
           <div className="hidden sm:block">
-            <span className="text-canvas/40 block">LLM SYNTHESIS</span>
+            <span className="text-canvas/40 block">CONVERSATIONAL AI</span>
             <span className="text-accent font-medium">Llama 3.3 70B</span>
           </div>
         </div>
@@ -215,12 +218,10 @@ export function ProjectMockup({ type, title }: ProjectMockupProps) {
           <div className="space-y-1">
             <div className="text-canvas/40 flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-              <span>LIVE AUDIO TRANSCRIPT STREAM [00:14:28]:</span>
+              <span>LIVE MICROPHONE TRANSCRIPT STREAM:</span>
             </div>
             <div className="bg-canvas/5 p-3 rounded border border-canvas/10 text-canvas/90 font-sans text-xs leading-relaxed">
-              &quot;...we confirmed that migrating the background payouts to Celery and Redis eliminates
-              the gateway timeout issue. For the sprint review next Tuesday, Ragil will finalize the
-              idempotency middleware and publish the API metrics report.&quot;
+              &quot;...in today&apos;s sprint update, we confirmed the REST API endpoints and data validation rules. The upcoming release schedule is finalized for next Thursday.&quot;
             </div>
           </div>
 
@@ -228,16 +229,16 @@ export function ProjectMockup({ type, title }: ProjectMockupProps) {
           <div className="space-y-1.5">
             <div className="text-accent flex items-center gap-1.5">
               <Zap className="w-3 h-3" />
-              <span>LLAMA 3.3 70B EXTRACTED ACTION ITEMS:</span>
+              <span>CONTEXTUAL AI SUGGESTIONS:</span>
             </div>
             <div className="space-y-1.5">
               <div className="flex items-start gap-2 bg-black/40 p-2.5 rounded border border-canvas/5 font-sans text-2xs text-canvas/80">
-                <span className="text-accent font-mono font-bold">[ACTION]</span>
-                <span>Finalize idempotency key validation on payout dispatches before Tuesday review.</span>
+                <span className="text-accent font-mono font-bold">[SUGGESTION]</span>
+                <span>Document the verified REST API parameters in Postman before the sprint signoff.</span>
               </div>
               <div className="flex items-start gap-2 bg-black/40 p-2.5 rounded border border-canvas/5 font-sans text-2xs text-canvas/80">
-                <span className="text-status-live font-mono font-bold">[DECISION]</span>
-                <span>Adopt Redis task queue broker as the official async standard for the team.</span>
+                <span className="text-status-live font-mono font-bold">[ACTION]</span>
+                <span>Coordinate with testing team for Thursday release validation.</span>
               </div>
             </div>
           </div>
@@ -245,166 +246,88 @@ export function ProjectMockup({ type, title }: ProjectMockupProps) {
 
         {/* Footer */}
         <div className="px-4 py-2 bg-black/60 border-t border-canvas/10 flex items-center justify-between text-canvas/40">
-          <span>Next.js • TypeScript • Web Audio API • Groq Cloud</span>
+          <span>Next.js • TypeScript • React • Tailwind CSS • Groq API</span>
           <span className="text-accent">github.com/ragil-007</span>
         </div>
       </div>
     );
   }
 
-  if (type === 'code') {
-    // TailorPro - Java 17 / Spring Boot Architecture & DTO
+  if (type === 'exam') {
+    // Luminar ExamHub
     return (
-      <div className="w-full rounded-xl bg-surface border border-rule-subtle shadow-lift overflow-hidden font-sans text-xs">
-        {/* Editor tab bar */}
-        <div className="bg-canvas-subtle px-4 py-2 border-b border-rule-subtle flex items-center justify-between">
+      <div className="w-full rounded-xl bg-surface border border-rule-subtle shadow-subtle p-4 font-sans text-xs space-y-3">
+        <div className="flex items-center justify-between border-b border-rule-subtle pb-2">
           <div className="flex items-center gap-2">
-            <div className="flex items-center gap-1.5 px-3 py-1 bg-white rounded border border-rule-subtle text-ink-primary font-mono text-2xs">
-              <Code2 className="w-3.5 h-3.5 text-accent" />
-              <span>TailorOrderController.java</span>
-            </div>
-            <span className="hidden sm:inline font-mono text-2xs text-ink-muted">
-              OrderDTO.java
-            </span>
+            <GraduationCap className="w-4 h-4 text-accent" />
+            <span className="font-semibold text-ink-primary">Luminar ExamHub Portal</span>
           </div>
-          <span className="font-mono text-2xs text-ink-secondary">Java 17 • Spring Boot 3</span>
+          <span className="font-mono text-2xs px-2 py-0.5 rounded bg-canvas-subtle text-ink-secondary">
+            MVC / JSP
+          </span>
         </div>
-
-        {/* Code View */}
-        <div className="p-4 sm:p-5 bg-ink-primary text-canvas font-mono text-2xs overflow-x-auto leading-relaxed">
-          <pre className="text-canvas/90">
-{`@RestController
-@RequestMapping("/api/v1/orders")
-@RequiredArgsConstructor
-public class TailorOrderController {
-
-    private final OrderManagementService orderService;
-
-    @PostMapping
-    @PreAuthorize("hasAnyRole('ADMIN', 'TAILOR_MASTER')")
-    public ResponseEntity<OrderResponseDTO> createBespokeOrder(
-            @Valid @RequestBody CreateOrderRequestDTO request,
-            @AuthenticationPrincipal UserDetails currentUser) {
-        
-        OrderResponseDTO created = orderService.processNewOrder(request, currentUser);
-        return ResponseEntity.status(HttpStatus.CREATED).body(created);
-    }
-
-    @GetMapping("/{id}/measurements")
-    @PreAuthorize("hasRole('ADMIN') or @securityService.isOrderOwner(#id, principal)")
-    public ResponseEntity<MeasurementProfileDTO> getMeasurements(@PathVariable Long id) {
-        return ResponseEntity.ok(orderService.getOrderMeasurements(id));
-    }
-}`}
-          </pre>
-        </div>
-
-        {/* Architectural Layers Breakdown */}
-        <div className="p-4 bg-white border-t border-rule-subtle grid grid-cols-2 sm:grid-cols-3 gap-3">
-          <div className="p-2.5 rounded bg-canvas-subtle border border-rule-subtle">
-            <span className="font-mono text-2xs text-ink-muted block uppercase">Architecture</span>
-            <span className="font-medium text-ink-primary text-xs">DTO Layer Isolation</span>
+        <div className="space-y-2 text-2xs text-ink-secondary">
+          <div className="p-2.5 rounded bg-canvas-subtle flex items-center justify-between">
+            <span className="font-medium text-ink-primary">Active Exam Session: Java & Spring Basics</span>
+            <span className="font-mono text-status-live">Scheduled</span>
           </div>
-          <div className="p-2.5 rounded bg-canvas-subtle border border-rule-subtle">
-            <span className="font-mono text-2xs text-ink-muted block uppercase">Security</span>
-            <span className="font-medium text-ink-primary text-xs">Method-Level RBAC</span>
-          </div>
-          <div className="p-2.5 rounded bg-canvas-subtle border border-rule-subtle col-span-2 sm:col-span-1">
-            <span className="font-mono text-2xs text-ink-muted block uppercase">Persistence</span>
-            <span className="font-medium text-ink-primary text-xs">JPA / Hibernate + MySQL</span>
+          <div className="flex items-center justify-between text-ink-muted font-mono pt-1">
+            <span>Role-Based Permissions: Student / Examiner / Admin</span>
+            <span>MySQL Backend</span>
           </div>
         </div>
       </div>
     );
   }
 
-  // Fallback / Playto - Payout Engine Flow
-  return (
-    <div className="w-full rounded-xl bg-surface border border-rule-subtle shadow-lift overflow-hidden font-sans text-xs">
-      {/* Header */}
-      <div className="bg-canvas-subtle px-4 py-2.5 border-b border-rule-subtle flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <Layers className="w-3.5 h-3.5 text-accent" />
-          <span className="font-mono text-2xs text-ink-primary font-semibold">
-            PLAYTO DISTRIBUTED DISPATCH PIPELINE
+  if (type === 'voter') {
+    // Voter Verification
+    return (
+      <div className="w-full rounded-xl bg-surface border border-rule-subtle shadow-subtle p-4 font-sans text-xs space-y-3">
+        <div className="flex items-center justify-between border-b border-rule-subtle pb-2">
+          <div className="flex items-center gap-2">
+            <FileCheck className="w-4 h-4 text-accent" />
+            <span className="font-semibold text-ink-primary">Booth Level Officer System</span>
+          </div>
+          <span className="font-mono text-2xs px-2 py-0.5 rounded bg-canvas-subtle text-ink-secondary">
+            Servlets / JSP
           </span>
         </div>
-        <span className="font-mono text-2xs text-status-live flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-status-live animate-pulse" />
-          CELERY WORKERS: 4 ONLINE
+        <div className="space-y-2 text-2xs text-ink-secondary">
+          <div className="p-2.5 rounded bg-canvas-subtle flex items-center justify-between">
+            <span className="font-medium text-ink-primary">Constituency Form Batch: BLO District #4</span>
+            <span className="font-mono text-accent">In Verification</span>
+          </div>
+          <div className="flex items-center justify-between text-ink-muted font-mono pt-1">
+            <span>Form Distribution & Collection Tracking</span>
+            <span>Relational MySQL</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Wolverine Traffic Management System
+  return (
+    <div className="w-full rounded-xl bg-surface border border-rule-subtle shadow-subtle p-4 font-sans text-xs space-y-3">
+      <div className="flex items-center justify-between border-b border-rule-subtle pb-2">
+        <div className="flex items-center gap-2">
+          <Radio className="w-4 h-4 text-accent" />
+          <span className="font-semibold text-ink-primary">Wolverine Road Safety & Traffic</span>
+        </div>
+        <span className="font-mono text-2xs px-2 py-0.5 rounded bg-canvas-subtle text-ink-secondary">
+          Android + Django REST
         </span>
       </div>
-
-      {/* Visual Pipeline Nodes */}
-      <div className="p-5 bg-white space-y-4">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          {/* Step 1 */}
-          <div className="p-3 rounded-lg border border-rule-subtle bg-canvas-subtle/50 flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between text-2xs font-mono text-ink-muted mb-1">
-                <span>STAGE 01</span>
-                <Server className="w-3.5 h-3.5 text-ink-secondary" />
-              </div>
-              <div className="font-medium text-ink-primary text-xs">HTTP Payout Ingestion</div>
-              <p className="text-2xs text-ink-secondary mt-1">
-                Django REST Framework validates idempotency key & schema.
-              </p>
-            </div>
-            <div className="mt-3 pt-2 border-t border-rule-subtle font-mono text-2xs text-status-live">
-              status: ACCEPTED (202)
-            </div>
-          </div>
-
-          {/* Step 2 */}
-          <div className="p-3 rounded-lg border border-accent/30 bg-accent-soft/40 flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between text-2xs font-mono text-accent mb-1">
-                <span>STAGE 02</span>
-                <Cpu className="w-3.5 h-3.5 text-accent" />
-              </div>
-              <div className="font-medium text-ink-primary text-xs">Redis Task Queue</div>
-              <p className="text-2xs text-ink-secondary mt-1">
-                Dispatched to Celery worker queue with exponential retry policy.
-              </p>
-            </div>
-            <div className="mt-3 pt-2 border-t border-rule-subtle font-mono text-2xs text-accent">
-              task: dispatch_batch_v2
-            </div>
-          </div>
-
-          {/* Step 3 */}
-          <div className="p-3 rounded-lg border border-rule-subtle bg-canvas-subtle/50 flex flex-col justify-between">
-            <div>
-              <div className="flex items-center justify-between text-2xs font-mono text-ink-muted mb-1">
-                <span>STAGE 03</span>
-                <ShieldCheck className="w-3.5 h-3.5 text-status-live" />
-              </div>
-              <div className="font-medium text-ink-primary text-xs">PostgreSQL Ledger</div>
-              <p className="text-2xs text-ink-secondary mt-1">
-                Row-level locking (select_for_update) maintains balance integrity.
-              </p>
-            </div>
-            <div className="mt-3 pt-2 border-t border-rule-subtle font-mono text-2xs text-status-live">
-              balance: AUDITED & RECONCILED
-            </div>
-          </div>
+      <div className="space-y-2 text-2xs text-ink-secondary">
+        <div className="p-2.5 rounded bg-canvas-subtle flex items-center justify-between">
+          <span className="font-medium text-ink-primary">Real-Time Alert: Roadblock & Traffic Signal Divert</span>
+          <span className="font-mono text-status-live">Active Route Alert</span>
         </div>
-
-        {/* Live Event Output Box */}
-        <div className="p-3 rounded-lg bg-ink-primary text-canvas font-mono text-2xs leading-relaxed">
-          <div className="text-canvas/50 mb-1">// Redis Pub/Sub Worker Activity Stream</div>
-          <div className="text-canvas/90">
-            [16:02:18] INFO/ForkPoolWorker-2: Task payout.tasks.execute_disbursement[4a28f] succeeded in 0.142s
-          </div>
-          <div className="text-status-live">
-            [16:02:19] SUCCESS: Batch #892 (48 payouts) marked SETTLED with zero reconciliation drift.
-          </div>
+        <div className="flex items-center justify-between text-ink-muted font-mono pt-1">
+          <span>Crowdsourced Incident Reporting & Voice Guidance</span>
+          <span>REST API</span>
         </div>
-      </div>
-
-      {/* Footer */}
-      <div className="px-4 py-2.5 bg-canvas-subtle border-t border-rule-subtle flex items-center justify-between text-2xs font-mono text-ink-muted">
-        <span>Stack: Python • Django REST Framework • Celery • Redis • PostgreSQL</span>
       </div>
     </div>
   );

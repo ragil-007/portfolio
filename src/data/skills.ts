@@ -2,61 +2,73 @@ import { SkillCategory } from '@/types';
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    category: 'Backend Engineering',
-    description: 'Server architecture, RESTful API design, security, and persistence models.',
+    category: 'IT Support & Operations',
+    description:
+      'Customer-facing Level 1 technical assistance, service desk workflows, and operational procedures.',
+    skills: [
+      { name: 'Level 1 Technical Support', highlight: true },
+      { name: 'Application Support', highlight: true },
+      { name: 'Production Support', highlight: true },
+      { name: 'Incident Logging', highlight: true },
+      { name: 'Issue Tracking', highlight: true },
+      { name: 'Troubleshooting', highlight: true },
+      { name: 'Escalation Coordination' },
+      { name: 'Technical Documentation & SOPs' },
+    ],
+  },
+  {
+    category: 'Systems & Networking',
+    description:
+      'Operating systems, network fundamentals, hosting environments, and infrastructure troubleshooting.',
+    skills: [
+      { name: 'Linux', highlight: true },
+      { name: 'DNS Configurations', highlight: true },
+      { name: 'Windows', highlight: true },
+      { name: 'Windows Server Fundamentals' },
+      { name: 'TCP/IP Fundamentals', highlight: true },
+      { name: 'Hosting Environments', highlight: true },
+      { name: 'Basic Network Troubleshooting' },
+    ],
+  },
+  {
+    category: 'Business Applications',
+    description:
+      'Enterprise customer service platforms, server control panels, and collaboration tools.',
+    skills: [
+      { name: 'Microsoft 365', highlight: true },
+      { name: 'Pega CRM', highlight: true },
+      { name: 'cPanel', highlight: true },
+      { name: 'Ticketing Systems', highlight: true },
+      { name: 'CRM Platforms' },
+      { name: 'Legacy Systems' },
+    ],
+  },
+  {
+    category: 'Software Development',
+    description:
+      'Backend frameworks, RESTful web services, frontend interfaces, and typed web development.',
     skills: [
       { name: 'Java', highlight: true },
       { name: 'Spring Boot', highlight: true },
-      { name: 'Spring Security', highlight: true },
-      { name: 'Hibernate / JPA', highlight: true },
       { name: 'Python', highlight: true },
       { name: 'Django', highlight: true },
-      { name: 'Django REST Framework' },
       { name: 'REST APIs', highlight: true },
-      { name: 'Servlets & JSP' },
-      { name: 'JWT Authentication' },
+      { name: 'HTML & CSS', highlight: true },
+      { name: 'JavaScript & TypeScript', highlight: true },
+      { name: 'Vue.js & Next.js' },
     ],
   },
   {
-    category: 'Frontend Development',
-    description: 'Modern component-driven web interfaces, typed state, and responsive layouts.',
+    category: 'Databases & Tools',
+    description:
+      'Relational data persistence, API testing, version control, and productivity suites.',
     skills: [
-      { name: 'TypeScript', highlight: true },
-      { name: 'JavaScript (ES6+)', highlight: true },
-      { name: 'React.js', highlight: true },
-      { name: 'Next.js (App Router)', highlight: true },
-      { name: 'Vue.js 3', highlight: true },
-      { name: 'Tailwind CSS', highlight: true },
-      { name: 'HTML5 & CSS3' },
-      { name: 'SCSS / Sass' },
-      { name: 'Motion / React' },
-    ],
-  },
-  {
-    category: 'Databases & Distributed Systems',
-    description: 'Relational data modeling, query optimization, caching, and task queues.',
-    skills: [
+      { name: 'SQL', highlight: true },
       { name: 'MySQL', highlight: true },
-      { name: 'PostgreSQL', highlight: true },
-      { name: 'MongoDB' },
-      { name: 'Redis', highlight: true },
-      { name: 'Celery (Background Workers)', highlight: true },
-      { name: 'Query Optimization' },
-      { name: 'Data Validation & Integrity' },
-    ],
-  },
-  {
-    category: 'Systems, Cloud & Developer Tools',
-    description: 'Infrastructure troubleshooting, deployment workflows, testing, and modern tooling.',
-    skills: [
-      { name: 'Git & GitHub', highlight: true },
-      { name: 'Linux Administration', highlight: true },
-      { name: 'DNS & TCP/IP Troubleshooting', highlight: true },
       { name: 'Postman & API Testing', highlight: true },
-      { name: 'Maven & Gradle' },
-      { name: 'cPanel & Web Hosting' },
-      { name: 'IntelliJ IDEA & VS Code' },
-      { name: 'AWS ELB & Auto Scaling (Certified)' },
+      { name: 'Git & GitHub', highlight: true },
+      { name: 'Microsoft Office', highlight: true },
+      { name: 'Maven' },
     ],
   },
 ];

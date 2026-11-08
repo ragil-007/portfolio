@@ -5,17 +5,17 @@ export interface Project {
   category: string;
   tagline: string;
   description: string;
-  longDescription: string;
+  longDescription?: string;
   technologies: string[];
-  role: string;
+  role?: string;
   timeline?: string;
-  status: 'Completed' | 'In Active Development' | 'Backend Complete';
+  status: 'Completed' | 'In Active Development' | 'Open Source';
   highlights: string[];
-  architecturePoints: string[];
   githubUrl?: string;
   liveUrl?: string;
   slug: string;
-  mockupType: 'dashboard' | 'code' | 'terminal' | 'flow';
+  mockupType?: 'dashboard' | 'terminal' | 'exam' | 'voter' | 'traffic';
+  isFeatured?: boolean;
 }
 
 export interface ExperienceItem {

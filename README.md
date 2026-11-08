@@ -1,8 +1,8 @@
 # Ragil KP — Personal Developer Portfolio
 
-> **Production-grade personal developer portfolio** built for Ragil KP, Software Developer based in Dubai, UAE.
+> **Production-grade personal developer portfolio** built for Ragil KP, Software Developer & IT Operations Professional based in Dubai, UAE.
 
-Designed with an editorial, minimalist aesthetic inspired by high-craft creative developer portfolios. Built strictly around verified experience from Ragil's resume, highlighting backend architectures (Java, Spring Boot, Python, Django), real-time AI tools (Next.js, Groq, Whisper, Llama 3.3), and production IT operations (Linux, DNS, web hosting).
+Designed with an editorial, minimalist aesthetic inspired by high-craft creative developer portfolios. Built strictly around verified experience from Ragil's resume and genuine GitHub repositories, highlighting backend architectures (Java, Spring Boot, Python, Django), real-time AI tools (Next.js, Groq, Whisper, Llama 3.3), and production IT operations (Linux, DNS, cPanel, Microsoft 365, Pega CRM).
 
 ---
 
@@ -17,54 +17,19 @@ Designed with an editorial, minimalist aesthetic inspired by high-craft creative
 
 ---
 
-## 🎨 Visual Design Direction
+## 📂 Verified Projects Featured
 
-- **Palette**: Warm off-white canvas (`#FAF9F5`), charcoal primary ink (`#161615`), soft muted secondary text (`#5C5B57`), subtle warm hairlines (`#E7E6E0`), single restrained warm terracotta accent (`#D0532C`), and live status emerald green (`#2E7D4E`).
-- **Typography**: Clean grotesque sans-serif paired with monospaced accents (`[01]`, metadata tags, live Dubai clock) and subtle serif accents.
-- **Composition**: Asymmetric editorial layout with generous whitespace, hairline grid borders, and bespoke visual mockups (no generic stock photography).
-- **Motion**: Subtle entrance reveals, stagger lists, and scroll progress indicator respecting `prefers-reduced-motion`.
-
----
-
-## 📂 Project Architecture
-
-```
-src/
-├── app/
-│   ├── globals.scss         # Global SCSS, design tokens, utility classes
-│   ├── icon.svg             # Dynamic SVG favicon
-│   ├── layout.tsx           # Root layout with SEO and Open Graph metadata
-│   ├── not-found.tsx        # Branded 404 handler
-│   └── page.tsx             # Master page assembling all sections
-├── components/
-│   ├── animations/
-│   │   └── Reveal.tsx       # Motion for React viewport reveal & stagger helpers
-│   ├── layout/
-│   │   ├── Navbar.tsx       # Floating blur nav with live Dubai time and section spy
-│   │   └── Footer.tsx       # Minimalist editorial footer with back-to-top
-│   ├── sections/
-│   │   ├── Hero.tsx         # Asymmetric editorial introduction with status indicator
-│   │   ├── Projects.tsx     # Flagship projects showcase with category filters
-│   │   ├── About.tsx        # Career narrative (Tech Ops to Software Engineering)
-│   │   ├── Experience.tsx   # Verified career timeline (UnifyCX, Luminar, Riss)
-│   │   ├── Skills.tsx       # 4 core domain matrices without arbitrary percentage bars
-│   │   ├── Education.tsx    # MCA (SIT), BCA (Kannur), AWS Certification
-│   │   └── Contact.tsx      # Direct mailto, clipboard copy, LinkedIn & GitHub
-│   └── ui/
-│       ├── SectionHeading.tsx  # Editorial section heading with index tags
-│       ├── ProjectMockup.tsx   # Bespoke interactive UI & architecture diagrams
-│       └── ResumeModal.tsx     # In-app full resume reader with instant download
-├── data/
-│   ├── navigation.ts        # Navigation links & personal contact constants
-│   ├── projects.ts          # Immuna, Meeting Assistant, TailorPro, Playto
-│   ├── experience.ts        # Work history from resume
-│   ├── skills.ts            # Categorized skills matrix
-│   └── education.ts         # Degrees & AWS certification
-├── lib/
-│   └── utils.ts             # Dubai time formatter and class merger
-└── types/
-    └── index.ts             # TypeScript interfaces for data models
-```
+1. **Immuna — Digital Immunization Management System** (Java, Spring Boot, Spring Security, JWT, MySQL, Vue.js, Vue Router, Axios)
+   - Live Demo: [https://immuna-vaccine-management.vercel.app/](https://immuna-vaccine-management.vercel.app/)
+   - GitHub: [https://github.com/ragil-007/immuna-vaccine-management](https://github.com/ragil-007/immuna-vaccine-management)
+2. **Meeting Assistant Realtime** (Next.js, TypeScript, React, Tailwind CSS, Groq API, Whisper Large V3, Llama 3.3 70B)
+   - GitHub: [https://github.com/ragil-007/meeting-assistant-realtime](https://github.com/ragil-007/meeting-assistant-realtime)
+3. **Luminar ExamHub** (Java, JSP, MySQL, Maven, MVC Architecture)
+   - GitHub: [https://github.com/ragil-007/luminar-examhub](https://github.com/ragil-007/luminar-examhub)
+4. **Voter Verification and Enumeration System** (Java, Java Servlets, JSP, MySQL)
+   - GitHub: [https://github.com/ragil-007/voter-verification-and-enumeration-system](https://github.com/ragil-007/voter-verification-and-enumeration-system)
+5. **Wolverine Traffic Management System** (Android, Python, Django, REST APIs, PostgreSQL)
+   - GitHub: [https://github.com/ragil-007/wolverine-traffic-management-system](https://github.com/ragil-007/wolverine-traffic-management-system)
 
 ---
 

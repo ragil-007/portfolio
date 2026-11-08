@@ -73,8 +73,8 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                 <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-ink-primary">
                   {PERSONAL_INFO.name}
                 </h1>
-                <p className="text-base text-accent font-medium mt-0.5">
-                  {PERSONAL_INFO.role}
+                <p className="text-xs sm:text-sm text-accent font-mono font-medium mt-0.5">
+                  IT SUPPORT ENGINEER | IT COORDINATOR | TECHNICAL OPERATIONS
                 </p>
                 <div className="flex flex-wrap items-center gap-y-1 gap-x-4 text-xs text-ink-secondary mt-2 font-mono">
                   <span className="flex items-center gap-1">
@@ -117,7 +117,7 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
             {/* Summary */}
             <div className="mt-5 text-xs sm:text-sm text-ink-secondary bg-canvas-subtle p-3.5 rounded-lg border border-rule-subtle">
               <strong className="text-ink-primary">Professional Summary: </strong>
-              IT and Software professional with experience in technical support, application support, production systems, server troubleshooting, deployment, databases, and software development. Skilled in Linux, Windows, DNS, Java, Spring Boot, Python, Django, REST APIs, SQL, Git, and troubleshooting. Experienced in production support, software development, testing, documentation, and IT operations.
+              IT and technical operations professional with experience in Level 1 chat-based technical support, application support, web-hosting environments, and software development. Skilled in troubleshooting website, hosting, and application-related issues; documenting incidents; tracking support requests; and coordinating escalations. Familiar with Windows, Linux, DNS, TCP/IP fundamentals, cPanel, Microsoft 365, Pega CRM, and ticketing systems. Strong foundation in technical documentation, user assistance, issue resolution, and deployment support, with a customer-focused approach and willingness to learn new IT systems and processes.
             </div>
           </div>
 
@@ -150,10 +150,41 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
             </div>
           </div>
 
-          {/* Education & Certification Section */}
+          {/* Technical Projects Summary */}
           <div className="space-y-4">
             <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-ink-muted">
               <span className="text-accent font-bold">[02]</span>
+              <span>Key Technical Projects</span>
+              <div className="flex-1 h-px bg-rule-subtle ml-2" />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="p-3.5 rounded-lg border border-rule-subtle bg-white space-y-1">
+                <div className="font-semibold text-ink-primary text-xs sm:text-sm">
+                  Immuna – Digital Immunization Management System
+                </div>
+                <div className="text-2xs font-mono text-accent">Spring Boot, Vue.js, MySQL, REST APIs</div>
+                <p className="text-xs text-ink-secondary">
+                  Full-stack immunization tracking application with 12+ RESTful APIs, JWT role-based access, and automated vaccination schedule alerts.
+                </p>
+              </div>
+
+              <div className="p-3.5 rounded-lg border border-rule-subtle bg-white space-y-1">
+                <div className="font-semibold text-ink-primary text-xs sm:text-sm">
+                  Meeting Assistant Realtime
+                </div>
+                <div className="text-2xs font-mono text-accent">Next.js, TypeScript, Groq API, Whisper Large V3, Llama 3.3</div>
+                <p className="text-xs text-ink-secondary">
+                  Live microphone speech-to-text meeting transcription and contextual AI suggestions powered by Groq and Llama 3.3 70B.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Education & Certification Section */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-ink-muted">
+              <span className="text-accent font-bold">[03]</span>
               <span>Education & Certification</span>
               <div className="flex-1 h-px bg-rule-subtle ml-2" />
             </div>
