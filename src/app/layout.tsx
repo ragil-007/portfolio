@@ -1,6 +1,10 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, JetBrains_Mono, Instrument_Serif } from 'next/font/google';
+import { getSiteUrl } from '@/lib/site';
 import './globals.scss';
+
+// ─── Site URL Resolution ──────────────────────────────────────────────────────
+const siteUrl = getSiteUrl();
 
 // ─── Font Loading ─────────────────────────────────────────────────────────────
 const inter = Inter({
@@ -24,7 +28,7 @@ const instrumentSerif = Instrument_Serif({
 
 // ─── Metadata ─────────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
-  metadataBase: new URL('https://ragilkp.dev'),
+  metadataBase: new URL(siteUrl),
   title: {
     default: 'Ragil KP — Software Developer | Portfolio',
     template: '%s | Ragil KP',
@@ -62,18 +66,18 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://ragilkp.dev',
+    url: siteUrl,
     title: 'Ragil KP — Software Developer',
     description:
       'Building digital experiences through code, creativity, and curiosity. Exploring backend architecture, distributed systems, and modern web applications.',
     siteName: 'Ragil KP Portfolio',
     images: [
       {
-        url: '/og-image.svg',
+        url: '/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Ragil KP — Software Developer Portfolio Preview',
-        type: 'image/svg+xml',
+        type: 'image/png',
       },
     ],
   },
@@ -82,7 +86,7 @@ export const metadata: Metadata = {
     title: 'Ragil KP — Software Developer',
     description:
       'Building digital experiences through code, creativity, and curiosity. Exploring backend architecture, distributed systems, and modern web applications.',
-    images: ['/og-image.svg'],
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,
@@ -110,12 +114,12 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'Person',
-      '@id': 'https://ragilkp.dev/#person',
+      '@id': `${siteUrl}/#person`,
       name: 'Ragil KP',
       jobTitle: 'Software Developer',
       description:
         'Software Developer based in Dubai, UAE specializing in Java, Spring Boot, Python, Django, Next.js, and practical full-stack engineering.',
-      url: 'https://ragilkp.dev',
+      url: siteUrl,
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Dubai',
@@ -152,12 +156,12 @@ const jsonLd = {
     },
     {
       '@type': 'WebSite',
-      '@id': 'https://ragilkp.dev/#website',
-      url: 'https://ragilkp.dev',
+      '@id': `${siteUrl}/#website`,
+      url: siteUrl,
       name: 'Ragil KP Portfolio',
       description: 'Personal portfolio of software developer Ragil KP',
       author: {
-        '@id': 'https://ragilkp.dev/#person',
+        '@id': `${siteUrl}/#person`,
       },
     },
   ],

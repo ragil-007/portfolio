@@ -77,6 +77,6 @@
 
   <!-- Bottom hairline border -->
   <line x1="80" y1="580" x2="1120" y2="580" stroke="#E7E6E0" stroke-width="1" />
-  <text x="80" y="605" class="mono" font-size="11" fill="#73726C">ragilkp.dev &bull; github.com/ragil-007 &bull; linkedin.com/in/ragil-raghunath</text>
+  <text x="80" y="605" class="mono" font-size="11" fill="#73726C">github.com/ragil-007 &bull; linkedin.com/in/ragil-raghunath</text>
   <text x="1120" y="605" class="mono" font-size="11" fill="#73726C" text-anchor="end">Dubai, UAE &bull; GST Timezone</text>
 </svg>
