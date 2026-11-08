@@ -157,9 +157,9 @@ export function Projects() {
               <span className="font-mono text-2xs uppercase tracking-widest text-ink-muted block mb-1">
                 // MORE VERIFIED REPOSITORIES
               </span>
-              <h4 className="text-xl sm:text-2xl font-semibold text-ink-primary">
+              <h3 className="text-xl sm:text-2xl font-semibold text-ink-primary">
                 Additional Technical Projects
-              </h4>
+              </h3>
               <p className="text-xs sm:text-sm text-ink-secondary mt-1">
                 Academic and systems projects built with Java, Servlets, Django, and relational databases.
               </p>
@@ -180,9 +180,9 @@ export function Projects() {
                       </div>
 
                       <div>
-                        <h5 className="font-semibold text-base sm:text-lg text-ink-primary group-hover:text-accent transition-colors">
+                        <h4 className="font-semibold text-base sm:text-lg text-ink-primary group-hover:text-accent transition-colors">
                           {project.title}
-                        </h5>
+                        </h4>
                         <p className="text-xs font-serif italic text-ink-secondary mt-0.5">
                           {project.tagline}
                         </p>
@@ -250,9 +250,9 @@ export function Projects() {
                 <span className="font-mono text-2xs uppercase tracking-widest text-accent font-semibold block mb-1">
                   // OPEN SOURCE CODEBASES
                 </span>
-                <h5 className="font-sans font-semibold text-base sm:text-lg text-ink-primary">
+                <h4 className="font-sans font-semibold text-base sm:text-lg text-ink-primary">
                   Looking for more code samples?
-                </h5>
+                </h4>
                 <p className="text-xs sm:text-sm text-ink-secondary mt-0.5">
                   Explore full repositories, commit histories, and code architectures directly on GitHub.
                 </p>

@@ -23,7 +23,7 @@ const config: Config = {
         ink: {
           primary: '#161615',
           secondary: '#5C5B57',
-          muted: '#8C8B85',
+          muted: '#73726C',
           faint: '#BCBBAE',
           inverted: '#FAF9F5',
         },

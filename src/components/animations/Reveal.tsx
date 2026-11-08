@@ -11,6 +11,7 @@ interface RevealProps {
   direction?: 'up' | 'down' | 'left' | 'right' | 'none';
   duration?: number;
   className?: string;
+  immediate?: boolean;
 }
 
 export function Reveal({
@@ -19,6 +20,7 @@ export function Reveal({
   direction = 'up',
   duration = 0.5,
   className = '',
+  immediate = false,
 }: RevealProps) {
   const shouldReduceMotion = useReducedMotion();
 
@@ -34,6 +36,24 @@ export function Reveal({
     right: { opacity: 0, x: -offset },
     none: { opacity: 0 },
   };
+
+  if (immediate) {
+    return (
+      <motion.div
+        initial={initialVariants[direction]}
+        animate={{ opacity: 1, x: 0, y: 0 }}
+        transition={{
+          duration,
+          delay,
+          ease: [0.21, 0.47, 0.32, 0.98],
+        }}
+        className={className}
+        style={{ willChange: 'transform, opacity' }}
+      >
+        {children}
+      </motion.div>
+    );
+  }
 
   return (
     <motion.div

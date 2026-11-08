@@ -43,7 +43,7 @@ export function Hero() {
             {/* Left Column: Editorial Headline & Narrative (7 cols) */}
             <div className="lg:col-span-7 flex flex-col justify-between space-y-6 sm:space-y-8">
               {/* Meta Label & Availability Badge */}
-              <Reveal direction="down" duration={0.4}>
+              <Reveal direction="down" duration={0.4} immediate>
                 <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs font-mono">
                   <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface border border-rule-subtle text-ink-secondary shadow-subtle">
                     <span className="w-2 h-2 rounded-full bg-status-live animate-pulse" />
@@ -60,7 +60,7 @@ export function Hero() {
               </Reveal>
 
               {/* Main Headline with Staggered Visual Flow */}
-              <Reveal delay={0.08} duration={0.55}>
+              <Reveal delay={0.08} duration={0.55} immediate>
                 <div className="space-y-3 sm:space-y-4">
                   <div className="font-mono text-xs sm:text-sm text-accent uppercase tracking-widest font-semibold flex items-center gap-2">
                     <span className="w-4 h-px bg-accent inline-block" />
@@ -82,14 +82,14 @@ export function Hero() {
               </Reveal>
 
               {/* Supporting Introduction */}
-              <Reveal delay={0.16} duration={0.5}>
+              <Reveal delay={0.16} duration={0.5} immediate>
                 <p className="text-sm sm:text-base md:text-lg text-ink-secondary leading-relaxed font-sans max-w-xl">
                   {PERSONAL_INFO.summary}
                 </p>
               </Reveal>
 
               {/* Action Buttons */}
-              <Reveal delay={0.24} duration={0.5}>
+              <Reveal delay={0.24} duration={0.5} immediate>
                 <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4 font-mono text-xs sm:text-sm">
                   <ScaleButton>
                     <a
@@ -124,7 +124,7 @@ export function Hero() {
 
             {/* Right Column: Interactive Profile & System Snapshot Card (5 cols) */}
             <div className="lg:col-span-5 w-full">
-              <Reveal delay={0.18} direction="left" duration={0.55}>
+              <Reveal delay={0.18} direction="left" duration={0.55} immediate>
                 <div className="rounded-2xl border border-rule-subtle bg-surface p-4 sm:p-7 shadow-lift relative space-y-5 transition-shadow hover:shadow-float">
                   {/* Card Top Pill */}
                   <div className="flex items-center justify-between border-b border-rule-subtle pb-3.5 gap-2">
