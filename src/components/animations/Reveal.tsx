@@ -1,7 +1,9 @@
 'use client';
 
 import React from 'react';
-import { motion, useReducedMotion, useScroll, useSpring } from 'motion/react';
+import { motion, useReducedMotion, useScroll, useSpring, AnimatePresence } from 'motion/react';
+
+export { AnimatePresence };
 
 interface RevealProps {
   children: React.ReactNode;
@@ -24,7 +26,7 @@ export function Reveal({
     return <div className={className}>{children}</div>;
   }
 
-  const offset = 24;
+  const offset = 20;
   const initialVariants = {
     up: { opacity: 0, y: offset },
     down: { opacity: 0, y: -offset },
@@ -37,13 +39,14 @@ export function Reveal({
     <motion.div
       initial={initialVariants[direction]}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: '-40px' }}
+      viewport={{ once: true, margin: '-30px' }}
       transition={{
         duration,
         delay,
         ease: [0.21, 0.47, 0.32, 0.98],
       }}
       className={className}
+      style={{ willChange: 'transform, opacity' }}
     >
       {children}
     </motion.div>
@@ -69,7 +72,7 @@ export function StaggerContainer({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-40px' }}
+      viewport={{ once: true, margin: '-30px' }}
       transition={{ staggerChildren: 0.08, delayChildren: delay }}
       className={className}
     >
@@ -98,9 +101,62 @@ export function StaggerItem({
         visible: {
           opacity: 1,
           y: 0,
-          transition: { duration: 0.45, ease: [0.21, 0.47, 0.32, 0.98] },
+          transition: { duration: 0.4, ease: [0.21, 0.47, 0.32, 0.98] },
         },
       }}
+      className={className}
+      style={{ willChange: 'transform, opacity' }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function HoverLift({
+  children,
+  className = '',
+  yOffset = -4,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  yOffset?: number;
+}) {
+  const shouldReduceMotion = useReducedMotion();
+
+  if (shouldReduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
+  return (
+    <motion.div
+      whileHover={{ y: yOffset }}
+      transition={{ duration: 0.2, ease: 'easeOut' }}
+      className={className}
+      style={{ willChange: 'transform' }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function ScaleButton({
+  children,
+  className = '',
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  const shouldReduceMotion = useReducedMotion();
+
+  if (shouldReduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
+  return (
+    <motion.div
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.97 }}
+      transition={{ duration: 0.15, ease: 'easeOut' }}
       className={className}
     >
       {children}
