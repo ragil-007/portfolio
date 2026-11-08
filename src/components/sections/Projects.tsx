@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
-import { ExternalLink, Github, CheckCircle, ArrowUpRight, Code, Sparkles, Terminal } from 'lucide-react';
+import React from 'react';
+import { ExternalLink, Github, CheckCircle, ArrowUpRight } from 'lucide-react';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { ProjectMockup } from '@/components/ui/ProjectMockup';
 import { PROJECTS } from '@/data/projects';
@@ -170,7 +170,7 @@ export function Projects() {
             {compactProjects.map((project, idx) => (
               <Reveal key={project.id} delay={idx * 0.08}>
                 <HoverLift yOffset={-3}>
-                  <div className="p-6 rounded-2xl border border-rule-subtle bg-surface hover:border-rule-medium hover:shadow-subtle transition-all duration-200 flex flex-col justify-between space-y-5 h-full group">
+                  <div className="p-5 sm:p-6 rounded-2xl border border-rule-subtle bg-surface hover:border-rule-medium hover:shadow-subtle transition-all duration-200 flex flex-col justify-between space-y-4 h-full group">
                     <div className="space-y-3">
                       <div className="flex items-center justify-between font-mono text-2xs text-ink-muted">
                         <span className="text-accent font-bold">[{project.number}]</span>
@@ -192,6 +192,11 @@ export function Projects() {
                         {project.description}
                       </p>
 
+                      {/* Architecture & System Demonstration Preview */}
+                      <div className="pt-1">
+                        <ProjectMockup type={project.mockupType} title={project.title} />
+                      </div>
+
                       <div className="space-y-1.5 pt-2 border-t border-rule-subtle">
                         <span className="font-mono text-2xs uppercase tracking-wider text-ink-muted block">
                           Highlights
@@ -207,7 +212,7 @@ export function Projects() {
                       </div>
                     </div>
 
-                    <div className="space-y-4 pt-3 border-t border-rule-subtle">
+                    <div className="space-y-3 pt-3 border-t border-rule-subtle">
                       <div className="flex flex-wrap gap-1">
                         {project.technologies.map((t) => (
                           <span

@@ -86,18 +86,18 @@ export function Navbar() {
             : 'bg-transparent py-4 sm:py-5'
         }`}
       >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-2">
           {/* Logo / Identity */}
           <a
             href="#"
-            className="group flex items-center gap-2.5 transition-transform active:scale-98 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg p-1"
+            className="group flex items-center gap-2 sm:gap-2.5 transition-transform active:scale-98 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg p-0.5 sm:p-1 shrink-0"
             aria-label={`${PERSONAL_INFO.name} Home`}
           >
-            <div className="w-8 h-8 rounded-lg bg-ink-primary text-canvas flex items-center justify-center font-mono text-xs font-bold tracking-tighter group-hover:bg-accent transition-colors shadow-subtle">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-ink-primary text-canvas flex items-center justify-center font-mono text-2xs sm:text-xs font-bold tracking-tighter group-hover:bg-accent transition-colors shadow-subtle shrink-0">
               RK
             </div>
-            <div className="flex flex-col">
-              <span className="font-sans font-semibold tracking-tight text-ink-primary text-sm sm:text-base group-hover:text-accent transition-colors">
+            <div className="flex flex-col min-w-0">
+              <span className="font-sans font-semibold tracking-tight text-ink-primary text-xs sm:text-base group-hover:text-accent transition-colors truncate">
                 {PERSONAL_INFO.name}
               </span>
               <span className="font-mono text-2xs text-ink-muted hidden sm:inline">
@@ -169,22 +169,22 @@ export function Navbar() {
           </div>
 
           {/* Mobile menu toggle & quick resume */}
-          <div className="flex items-center gap-2 md:hidden">
+          <div className="flex items-center gap-1.5 sm:gap-2 md:hidden shrink-0">
             <button
               onClick={() => setResumeOpen(true)}
-              className="px-2.5 py-1 text-2xs font-mono rounded-lg border border-rule-medium text-ink-primary flex items-center gap-1 bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              className="px-2 py-1 text-2xs font-mono rounded-lg border border-rule-medium hover:border-ink-primary text-ink-primary flex items-center gap-1 bg-surface hover:bg-canvas-subtle transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent shadow-2xs"
               aria-label="View Resume"
             >
-              <FileText className="w-3 h-3 text-accent" />
+              <FileText className="w-3 h-3 text-accent shrink-0" />
               <span>Resume</span>
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-ink-primary hover:bg-canvas-subtle border border-rule-subtle transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent min-w-[40px] min-h-[40px] flex items-center justify-center"
+              className="p-1.5 sm:p-2 rounded-lg text-ink-primary hover:bg-canvas-subtle border border-rule-subtle transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent min-w-[38px] min-h-[38px] sm:min-w-[42px] sm:min-h-[42px] flex items-center justify-center"
               aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
               aria-expanded={mobileMenuOpen}
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? <X className="w-4 h-4 sm:w-5 sm:h-5" /> : <Menu className="w-4 h-4 sm:w-5 sm:h-5" />}
             </button>
           </div>
         </div>

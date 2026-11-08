@@ -23,7 +23,7 @@ export function Education() {
             {EDUCATION_LIST.map((edu, idx) => (
               <Reveal key={edu.degree} delay={idx * 0.08}>
                 <HoverLift yOffset={-3}>
-                  <div className="p-6 sm:p-8 rounded-2xl border border-rule-subtle bg-surface shadow-subtle space-y-4 hover:border-rule-medium hover:shadow-float transition-all duration-200">
+                  <div className="p-5 sm:p-8 rounded-2xl border border-rule-subtle bg-surface shadow-subtle space-y-4 hover:border-rule-medium hover:shadow-float transition-all duration-200">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                       <div className="flex items-center gap-2.5">
                         <div className="p-2.5 rounded-xl bg-canvas-subtle text-accent border border-rule-subtle">
@@ -64,7 +64,7 @@ export function Education() {
           <div className="lg:col-span-4 space-y-6 w-full">
             <Reveal delay={0.16} direction="left">
               <HoverLift yOffset={-3}>
-                <div className="p-6 sm:p-7 rounded-2xl border border-rule-subtle bg-surface shadow-subtle space-y-5 hover:border-rule-medium hover:shadow-float transition-all duration-200">
+                <div className="p-5 sm:p-7 rounded-2xl border border-rule-subtle bg-surface shadow-subtle space-y-5 hover:border-rule-medium hover:shadow-float transition-all duration-200">
                   <div className="flex items-center gap-2 font-mono text-xs text-ink-muted">
                     <Award className="w-4 h-4 text-accent" />
                     <span className="uppercase tracking-wider font-semibold">Accredited Credentials</span>

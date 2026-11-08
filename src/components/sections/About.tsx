@@ -1,6 +1,6 @@
 import React from 'react';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { Cpu, Server, Headphones, Wrench, CheckCircle2 } from 'lucide-react';
+import { Server, Headphones } from 'lucide-react';
 import { Reveal, HoverLift } from '@/components/animations/Reveal';
 
 export function About() {
@@ -87,7 +87,7 @@ export function About() {
           <div className="lg:col-span-5 space-y-6 w-full">
             <Reveal delay={0.16} direction="left">
               <HoverLift yOffset={-3}>
-                <div className="p-6 sm:p-7 rounded-2xl border border-rule-subtle bg-surface shadow-subtle space-y-5 hover:border-rule-medium hover:shadow-float transition-all duration-200">
+                <div className="p-5 sm:p-7 rounded-2xl border border-rule-subtle bg-surface shadow-subtle space-y-5 hover:border-rule-medium hover:shadow-float transition-all duration-200">
                   <div className="flex items-center justify-between border-b border-rule-subtle pb-4">
                     <span className="font-mono text-xs uppercase tracking-wider text-ink-primary font-semibold">
                       Candidate Profile

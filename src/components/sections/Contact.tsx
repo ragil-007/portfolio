@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ArrowUpRight, Check, Copy, Download, Github, Linkedin, MapPin, Send, MessageSquare } from 'lucide-react';
+import { ArrowUpRight, Check, Copy, Download, Github, Linkedin, MapPin, Send } from 'lucide-react';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { PERSONAL_INFO } from '@/data/navigation';
 import { ResumeModal } from '@/components/ui/ResumeModal';
@@ -58,7 +58,7 @@ export function Contact() {
             {/* Left Column: Direct Contact & Action Card (7 cols) */}
             <div className="lg:col-span-7">
               <Reveal delay={0.08}>
-                <div className="p-7 sm:p-10 rounded-2xl border border-rule-subtle bg-surface shadow-lift flex flex-col justify-between space-y-7 h-full">
+                <div className="p-5 sm:p-8 md:p-10 rounded-2xl border border-rule-subtle bg-surface shadow-lift flex flex-col justify-between space-y-6 sm:space-y-7 h-full">
                   <div className="space-y-6">
                     <div className="flex items-center gap-2 font-mono text-xs text-accent uppercase tracking-wider font-semibold">
                       <span>// DIRECT REACHOUT</span>
@@ -151,7 +151,7 @@ export function Contact() {
             {/* Right Column: Channels & Location Card (5 cols) */}
             <div className="lg:col-span-5 w-full">
               <Reveal delay={0.16} direction="left">
-                <div className="p-7 sm:p-10 rounded-2xl border border-rule-subtle bg-surface shadow-lift flex flex-col justify-between space-y-6 h-full">
+                <div className="p-5 sm:p-8 md:p-10 rounded-2xl border border-rule-subtle bg-surface shadow-lift flex flex-col justify-between space-y-6 h-full">
                   <div className="space-y-5">
                     <span className="font-mono text-xs uppercase tracking-wider text-ink-muted block font-semibold">
                       // PROFESSIONAL PROFILES

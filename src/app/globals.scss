@@ -99,6 +99,15 @@
   }
 
   /* Note: shadow-2xs is defined in tailwind.config.ts */
+
+  /* Hide scrollbar for clean touch carousels */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
 
 /* Reduced motion preference */

@@ -1,7 +1,7 @@
 import React from 'react';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { EXPERIENCES } from '@/data/experience';
-import { Calendar, CheckCircle2, MapPin, Briefcase } from 'lucide-react';
+import { Calendar, CheckCircle2, MapPin } from 'lucide-react';
 import { Reveal, HoverLift } from '@/components/animations/Reveal';
 
 export function Experience() {

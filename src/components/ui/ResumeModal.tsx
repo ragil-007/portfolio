@@ -49,22 +49,23 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
             aria-labelledby="resume-title"
           >
             {/* Modal Top Bar */}
-            <div className="px-5 py-4 border-b border-rule-subtle bg-canvas-subtle flex items-center justify-between shrink-0">
-              <div className="flex items-center gap-3">
-                <div className="w-2.5 h-2.5 rounded-full bg-status-live" />
-                <h2 id="resume-title" className="font-mono text-xs uppercase tracking-wider text-ink-primary font-bold">
+            <div className="px-3 sm:px-5 py-3 sm:py-4 border-b border-rule-subtle bg-canvas-subtle flex items-center justify-between gap-2 shrink-0">
+              <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+                <div className="w-2.5 h-2.5 rounded-full bg-status-live shrink-0" />
+                <h2 id="resume-title" className="font-mono text-2xs sm:text-xs uppercase tracking-wider text-ink-primary font-bold truncate">
                   Official Resume Document — {PERSONAL_INFO.name}
                 </h2>
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 shrink-0">
                 <a
                   href={PERSONAL_INFO.resumeUrl}
                   download="Ragil_KP_Resume.pdf"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono font-medium rounded-lg bg-ink-primary text-canvas hover:bg-accent transition-colors"
+                  className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 text-xs font-mono font-medium rounded-lg bg-ink-primary text-canvas hover:bg-accent transition-colors"
                 >
                   <Download className="w-3.5 h-3.5" />
-                  <span>Download PDF</span>
+                  <span className="hidden sm:inline">Download PDF</span>
+                  <span className="sm:hidden">PDF</span>
                 </a>
                 <button
                   onClick={onClose}
@@ -77,7 +78,7 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
             </div>
 
             {/* Modal Body / Paper Document Preview */}
-            <div className="p-6 sm:p-10 overflow-y-auto space-y-8 bg-[#FAF9F6] text-ink-primary font-sans leading-relaxed text-sm">
+            <div className="p-4 sm:p-6 md:p-10 overflow-y-auto space-y-6 sm:space-y-8 bg-[#FAF9F6] text-ink-primary font-sans leading-relaxed text-sm">
               {/* Resume Header */}
               <div className="border-b border-rule-subtle pb-6">
                 <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">

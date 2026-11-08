@@ -3,16 +3,32 @@
 import React, { useState } from 'react';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { SKILL_CATEGORIES } from '@/data/skills';
-import { Check, Filter } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { Reveal, HoverLift } from '@/components/animations/Reveal';
 import { motion, AnimatePresence } from 'motion/react';
 
+const FILTER_TABS = [
+  { id: 'all', label: `All (${SKILL_CATEGORIES.length})` },
+  { id: 'support', label: 'Support & Ops' },
+  { id: 'systems', label: 'Systems & Network' },
+  { id: 'business', label: 'Business Apps' },
+  { id: 'development', label: 'Software Dev' },
+  { id: 'databases', label: 'Databases & Tools' },
+] as const;
+
+type FilterId = (typeof FILTER_TABS)[number]['id'];
+
 export function Skills() {
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [selectedCategory, setSelectedCategory] = useState<FilterId>('all');
 
   const filteredCategories = SKILL_CATEGORIES.filter((cat) => {
     if (selectedCategory === 'all') return true;
-    return cat.category.toLowerCase().includes(selectedCategory.toLowerCase());
+    if (selectedCategory === 'support') return cat.category.toLowerCase().includes('support');
+    if (selectedCategory === 'systems') return cat.category.toLowerCase().includes('systems');
+    if (selectedCategory === 'business') return cat.category.toLowerCase().includes('business');
+    if (selectedCategory === 'development') return cat.category.toLowerCase().includes('software');
+    if (selectedCategory === 'databases') return cat.category.toLowerCase().includes('databases');
+    return true;
   });
 
   return (
@@ -27,58 +43,35 @@ export function Skills() {
               subtitle="Categorized technical capabilities derived strictly from my verified IT support experience, software development roles, and project repositories."
             />
 
-            {/* Interactive Domain Filter Bar */}
-            <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-2xl bg-surface border border-rule-subtle shadow-subtle self-start md:self-auto mb-8 md:mb-16">
-              <button
-                onClick={() => setSelectedCategory('all')}
-                className={`px-3 py-1.5 rounded-xl text-xs font-mono transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent ${
-                  selectedCategory === 'all'
-                    ? 'bg-ink-primary text-canvas font-medium shadow-2xs'
-                    : 'text-ink-secondary hover:text-ink-primary'
-                }`}
-              >
-                All ({SKILL_CATEGORIES.length})
-              </button>
-              <button
-                onClick={() => setSelectedCategory('support')}
-                className={`px-3 py-1.5 rounded-xl text-xs font-mono transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent ${
-                  selectedCategory === 'support'
-                    ? 'bg-ink-primary text-canvas font-medium shadow-2xs'
-                    : 'text-ink-secondary hover:text-ink-primary'
-                }`}
-              >
-                Support & Ops
-              </button>
-              <button
-                onClick={() => setSelectedCategory('systems')}
-                className={`px-3 py-1.5 rounded-xl text-xs font-mono transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent ${
-                  selectedCategory === 'systems'
-                    ? 'bg-ink-primary text-canvas font-medium shadow-2xs'
-                    : 'text-ink-secondary hover:text-ink-primary'
-                }`}
-              >
-                Systems & Network
-              </button>
-              <button
-                onClick={() => setSelectedCategory('development')}
-                className={`px-3 py-1.5 rounded-xl text-xs font-mono transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent ${
-                  selectedCategory === 'development'
-                    ? 'bg-ink-primary text-canvas font-medium shadow-2xs'
-                    : 'text-ink-secondary hover:text-ink-primary'
-                }`}
-              >
-                Software Dev
-              </button>
-              <button
-                onClick={() => setSelectedCategory('databases')}
-                className={`px-3 py-1.5 rounded-xl text-xs font-mono transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent ${
-                  selectedCategory === 'databases'
-                    ? 'bg-ink-primary text-canvas font-medium shadow-2xs'
-                    : 'text-ink-secondary hover:text-ink-primary'
-                }`}
-              >
-                Databases & Tools
-              </button>
+            {/* Interactive Domain Filter Bar with smooth sliding active pill & horizontal touch swipe on mobile */}
+            <div className="w-full md:w-auto overflow-x-auto no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 mb-8 md:mb-16">
+              <div className="inline-flex items-center gap-1 p-1 rounded-2xl bg-surface border border-rule-subtle shadow-subtle min-w-max relative" role="tablist" aria-label="Skills domain filter">
+                {FILTER_TABS.map((tab) => {
+                  const isSelected = selectedCategory === tab.id;
+                  return (
+                    <button
+                      key={tab.id}
+                      role="tab"
+                      aria-selected={isSelected}
+                      onClick={() => setSelectedCategory(tab.id)}
+                      className={`px-3 py-1.5 rounded-xl text-xs font-mono transition-colors duration-200 relative focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent ${
+                        isSelected
+                          ? 'text-canvas font-medium'
+                          : 'text-ink-secondary hover:text-ink-primary'
+                      }`}
+                    >
+                      {isSelected && (
+                        <motion.span
+                          layoutId="activeSkillTab"
+                          className="absolute inset-0 bg-ink-primary rounded-xl z-0 shadow-2xs"
+                          transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                        />
+                      )}
+                      <span className="relative z-10 whitespace-nowrap">{tab.label}</span>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </Reveal>

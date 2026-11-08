@@ -1,12 +1,11 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { ArrowDown, ArrowUpRight, Check, Copy, Download, FileText, MapPin, Sparkles, Terminal } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Check, Copy, Download, FileText, MapPin, Terminal } from 'lucide-react';
 import { PERSONAL_INFO } from '@/data/navigation';
 import { ResumeModal } from '@/components/ui/ResumeModal';
 import { formatDubaiTime } from '@/lib/utils';
 import { Reveal, ScaleButton } from '@/components/animations/Reveal';
-import { motion } from 'motion/react';
 
 export function Hero() {
   const [resumeOpen, setResumeOpen] = useState<boolean>(false);
@@ -126,14 +125,14 @@ export function Hero() {
             {/* Right Column: Interactive Profile & System Snapshot Card (5 cols) */}
             <div className="lg:col-span-5 w-full">
               <Reveal delay={0.18} direction="left" duration={0.55}>
-                <div className="rounded-2xl border border-rule-subtle bg-surface p-5 sm:p-7 shadow-lift relative space-y-5 transition-shadow hover:shadow-float">
+                <div className="rounded-2xl border border-rule-subtle bg-surface p-4 sm:p-7 shadow-lift relative space-y-5 transition-shadow hover:shadow-float">
                   {/* Card Top Pill */}
-                  <div className="flex items-center justify-between border-b border-rule-subtle pb-3.5">
-                    <div className="flex items-center gap-2 font-mono text-2xs text-ink-muted">
-                      <Terminal className="w-3.5 h-3.5 text-accent" />
-                      <span>SYSTEM PROFILE // TECH OPS & DEV</span>
+                  <div className="flex items-center justify-between border-b border-rule-subtle pb-3.5 gap-2">
+                    <div className="flex items-center gap-2 font-mono text-2xs text-ink-muted truncate">
+                      <Terminal className="w-3.5 h-3.5 text-accent shrink-0" />
+                      <span className="truncate">SYSTEM PROFILE // TECH OPS & DEV</span>
                     </div>
-                    <span className="font-mono text-2xs px-2 py-0.5 rounded bg-canvas-subtle text-ink-secondary border border-rule-subtle">
+                    <span className="font-mono text-2xs px-2 py-0.5 rounded bg-canvas-subtle text-ink-secondary border border-rule-subtle shrink-0">
                       MCA &bull; DUBAI
                     </span>
                   </div>
@@ -211,7 +210,7 @@ export function Hero() {
                         )}
                       </button>
                     </div>
-                    <div className="text-ink-primary font-mono select-all">
+                    <div className="text-ink-primary font-mono select-all break-all">
                       $ echo &quot;{PERSONAL_INFO.email}&quot;
                     </div>
                     <div className="text-ink-muted text-2xs">
